@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main() {
+int zd7() {
     const int N = 5;
     float x = -10.0f/3.0f;
     float Mfs[N] = {x, x, x, x, x};

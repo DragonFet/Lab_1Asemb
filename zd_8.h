@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main() {
+int zd_8() {
     char s1[100], s2[100], s3[100];
 
     fgets(s1, 100, stdin);

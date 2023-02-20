@@ -5,22 +5,21 @@ using namespace std;
 
 int zd5()
 {
-    setlocale(LC_ALL, "Russian");
     int M[5] = {1, 2, 3, 4, 5};
     int new_value;
 
-    printf("Исходный массив: ");
+    printf("beginner massive: ");
     for (int i = 0; i < 5; i++) {
         printf("%d ", M[i]);
     }
     printf("\n");
 
-    printf("Введите новое значение элемента M[2]: ");
+    printf("Pls input new value M[2]: ");
     if (scanf("%d", &new_value) != 1) {
-        printf("Ошибка ввода\n");
+        printf("wrong input\n");
     } else {
         M[2] = new_value;
-        printf("Массив после изменения: ");
+        printf("Massive after change : ");
         for (int i = 0; i < 5; i++) {
             printf("%d ", M[i]);
         }
