@@ -4,14 +4,11 @@
 int main() {
     char s1[100], s2[100], s3[100];
 
-    // Input string s1
     fgets(s1, 100, stdin);
 
-    // Input string s2 with max length of 99
     strncpy(s2, s1, 99);
     s2[99] = '\0';
 
-    // Input string s3 with possible spaces
     char *token = strtok(s1, " ");
     strcpy(s3, token);
     while(token != NULL) {
