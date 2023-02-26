@@ -1,50 +1,29 @@
 #include <iostream>
-
-
 using namespace std;
 
 
-
 int zd6()
+
 {
-    uint16_t x16 = 0xDEAD;
-    uint32_t x32 = 0xC0CAC01A;
-    uint64_t x64 = 0xC0FFEE11BEA7;
 
-    uint16_t ms[5] = {x16, x16, x16, x16, x16};
-    uint32_t ml[5] = {x32, x32, x32, x32, x32};
-    uint64_t mq[5] = {x64, x64, x64, x64, x64};
+    unsigned char M8[] = {0xED, 0xED, 0xED, 0xED, 0xED};
+    cout<<"x8"<<endl;
+    for (unsigned char i : M8) printf("%u ", i);
 
-    std::cout << "Array of 16-bit integers: ";
-    for (int i = 0; i < 5; i++)
-        std::printf("%04x ", ms[i]);
-    std::cout << std::endl;
 
-    std::cout << "Array of 32-bit integers: ";
-    for (int i = 0; i < 5; i++)
-        std::printf("%08x ", ml[i]);
-    std::cout << std::endl;
-
-    std::cout << "Array of 64-bit integers: ";
-    for (int i = 0; i < 5; i++)
-        std::printf("%016llx ", mq[i]);
-    std::cout << std::endl;
-
-    const int N = 5;
-    float x = -10.0f/3.0f;
-    double y = -10.0/3.0;
-    float Ms[N] = {x, x, x, x, x};
-    double Ml[N] = {y, y, y, y, y};
-    cout << "Ms: ";
-    for (int i = 0; i < N; i++) {
-        printf("%.2f ", Ms[i]);
+    printf("\nPls input new value M8[2]: ");
+    unsigned int new_value;
+    if (scanf("%u", &new_value) != 1) {
+        printf("wrong input\n");
+    } else if (new_value > 255) {
+        printf("wrong input\n");
+    } else {
+        M8[2] = static_cast<unsigned char>(new_value);
+        printf("Massive after change : ");
+        for (unsigned char i : M8) {
+            printf("%u ", i);
+        }
+        printf("\n");
     }
-    cout << endl;
-
-    cout << "Ml: ";
-    for (int i = 0; i < N; i++) {
-        printf("%.2lf ", Ml[i]);
-    }
-    cout<<endl;
     return 0;
 }
