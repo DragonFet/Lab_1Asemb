@@ -1,24 +1,29 @@
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 int zd_8() {
-    char s1[100], s2[100], s3[100];
+    char s1[100], s3[100];
+    printf("Enter a string with spaces: ");
+    fflush(stdout);
+    scanf("%[^\n]", s3);
+    fflush(stdin);
 
-    fgets(s1, 100, stdin);
+    printf("Enter a word without spaces: ");
+    fflush(stdout);
+    scanf("%s", s1);
+    fflush(stdin);
 
-    strncpy(s2, s1, 99);
-    s2[99] = '\0';
+    char s2[10];  // объявление буфера для слова s2 длиной 10 символов
+    printf("Enter word s2: ");
+    fgets(s2, sizeof(s2), stdin);  // функция fgets для безопасного чтения строки
+    s2[strcspn(s2, "\n")] = '\0';  // удаляем символ переноса строки, если он был считан
 
-    char *token = strtok(s1, " ");
-    strcpy(s3, token);
-    while(token != NULL) {
-        token = strtok(NULL, " ");
-        if(token != NULL) {
-            strcat(s3, " ");
-            strcat(s3, token);
-        }
-    }
 
-    printf("***%s***\n***%s***\n***%s***\n", s1, s2, s3);
+    printf("***%s***\n", s1);
+    printf("***%s***\n", s2);
+    printf("***%s***\n", s3);
+    fflush(stdout);
+
     return 0;
 }
