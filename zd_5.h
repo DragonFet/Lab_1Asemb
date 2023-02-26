@@ -1,30 +1,23 @@
-#include <iostream>
 #include <stdio.h>
-using namespace std;
+#include <string.h>
 
+int zd7() {
+    const int N = 5;
+    float x = -10.0f/3.0f;
+    float Mfs[N] = {x, x, x, x, x};
 
-int zd5()
-{
-    int M[5] = {1, 2, 3, 4, 5};
-    int new_value;
-
-    printf("beginner massive: ");
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", M[i]);
-    }
-    printf("\n");
-
-    printf("Pls input new value M[2]: ");
-    if (scanf("%d", &new_value) != 1) {
-        printf("wrong input\n");
+    if (scanf("%f %f %f %f %f", &Mfs[0],&Mfs[1],&Mfs[2],&Mfs[3],&Mfs[4]) != 5) {
+        printf("Error\n");
     } else {
-        M[2] = new_value;
-        printf("Massive after change : ");
+
+        printf("Mass after changing: ");
         for (int i = 0; i < 5; i++) {
-            printf("%d ", M[i]);
+            printf("%f ", Mfs[i]);
         }
         printf("\n");
     }
 
-    return 0;
+
+
+
 }
