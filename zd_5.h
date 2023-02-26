@@ -1,55 +1,62 @@
-int zd5() {
-    const int N = 5;
-    __int16 x16 = 0xDEAD;
-    uint32_t x32 = 0xC0CAC01A;
-    uint64_t x64 = 0xC0FFEE11BEA7;
-    __int16 M16[N] = {x16, x16, x16, x16, x16};
-    uint32_t M32[N] = {x32, x32, x32, x32, x32};
-    uint64_t M64[N] = {x64, x64, x64, x64, x64};
+#include <iostream>
+using namespace std;
+
+
+int zd5()
+{
+    unsigned short M16[] = {0xDEAD, 0xDEAD, 0xDEAD, 0xDEAD, 0xDEAD};
+    unsigned int M32[] = {0xC0CAC01A, 0xC0CAC01A, 0xC0CAC01A, 0xC0CAC01A, 0xC0CAC01A};
+    unsigned long long M64[] = {0xC0FFEE11BEA7, 0xC0FFEE11BEA7, 0xC0FFEE11BEA7, 0xC0FFEE11BEA7, 0xC0FFEE11BEA7};
     float x = -10.0f / 3.0f;
     double y = -10.0 / 3.0;
-    float Ms[N] = {x, x, x, x, x};
-    double Ml[N] = {y, y, y, y, y};
-    int new_value;
+    float Ms[] = {x, x, x, x, x};
+    double Ml[] = {y, y, y, y, y};
 
 
     cout << "x16" << endl;
-    for (int i = 0; i < 5; ++i) printf("%04X ", M16[i]);
+    for (unsigned short i : M16) {
+        printf("%hu ", i);}
     cout << "x32" << endl;
-    for (int i = 0; i < 5; ++i) printf("%08X ", M32[i]);
+    for (unsigned int i : M32) {
+        printf("%u ", i);}
     cout << "x64" << endl;
-    for (int i = 0; i < 5; ++i) printf("%016llX ", M64[i]);
+    for (unsigned long long i : M64) {
+        printf("%llu ", i);}
     cout << endl;
     cout << "Ms: ";
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < 5; i++) {
         printf("%.2f ", Ms[i]);
     }
     cout << endl;
 
     cout << "Ml: ";
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < 5; i++) {
         printf("%.2lf ", Ml[i]);
     }
     cout << endl;
     cout << "A new values for five massives\n ";
-    scanf("%f %f %f %f %f", &M16[2], &M32[2], &M64[2], &Ms[2], &Ml[2]);
-    cout << endl;
+    scanf("%hu %u %llu %f %lf", &M16[2], &M32[2], &M64[2], &Ms[2], &Ml[2]);
     cout << "massive check";
     cout <<endl;
-    for (int i = 0; i < 5; ++i) printf("%hd", M16[i]);
     cout << "x16" << endl;
-    for (int i = 0; i < 5; ++i) printf("%d", M32[i]);
+    for (unsigned short i : M16) {
+        printf("%hu ", i);}
+    cout << "x32" << endl;
+    for (unsigned int i : M32) {
+        printf("%u ", i);}
     cout << "x64" << endl;
-    for (int i = 0; i < 5; ++i) printf("%ld", M64[i]);
+    for (unsigned long long i : M64) {
+        printf("%llu ", i);}
     cout << endl;
+
     cout << "Ms: ";
-    for (int i = 0; i < N; i++) {
-        printf("%f", Ms[i]);
-    }
+    for (float i : Ms) {
+        printf("%f ", i);}
+
     cout << endl;
 
     cout << "Ml: ";
-    for (int i = 0; i < N; i++) {
-        printf("%lf ", Ml[i]);
-    }
+    for (double i : Ml) {
+        printf("%lf ", i);}
+
 }
