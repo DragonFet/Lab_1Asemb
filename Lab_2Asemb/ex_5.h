@@ -1,5 +1,7 @@
 #include <iostream>
 #include <iomanip>
+#include <stdio.h>
+#include <string.h>
 using namespace std;
 //Вариант из таблицы 1,входные данные:x = 0x99887766, y = 5, z = −5
 
@@ -8,13 +10,12 @@ using namespace std;
 
 
 void printDump(void* p, size_t N) {
-    unsigned char* bytes = reinterpret_cast<unsigned char*>(p);
+    unsigned char* ptr = (unsigned char*) p;
     for (size_t i = 0; i < N; i++) {
-        std::cout << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(bytes[i]) << " ";
+        printf("%02X ", *(ptr + i));
     }
-    std::cout << std::endl;
+    printf("\n");
 }
-
 
 
 
