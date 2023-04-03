@@ -1,7 +1,7 @@
 #include <iostream>
 #include <bitset>
 
-int main() {
+int zd_4() {
     // исходное значение переменной x
     int16_t x = 155;
 
